@@ -18,6 +18,16 @@ export default {
   },
   created () {
     console.log('test created')
+  },
+  beforeMount () {
+    console.log('Before Mounte Hook')
+  },
+  // 掛載 $mount方法
+  mounted () {
+    console.log('Mounte Hook Start')
+  },
+  beforeUpdate () {
+    console.log('Before Update Hook')
   }
 }
 </script>

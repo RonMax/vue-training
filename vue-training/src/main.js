@@ -7,7 +7,9 @@ import router from './router'
 Vue.config.productionTip = false
 
 /* eslint-disable no-new */
+// new Vue 執行初始化(筆記)
 new Vue({
+  // ,自定義Render , template, el 生成Render函數(筆記)
   el: '#app',
   router,
   components: { App },
