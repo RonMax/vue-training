@@ -1,13 +1,24 @@
 <template>
   <div id="app">
+    <header/>
     <img src="./assets/logo.png">
     <router-view/>
   </div>
 </template>
 
 <script>
+import Header from '@/components/Header'
 export default {
-  name: 'App'
+  comments: {
+    Header
+  },
+  name: 'App',
+  beforeCreate () {
+    console.log('Nothing gonna change my life')
+  },
+  created () {
+    console.log('test created')
+  }
 }
 </script>
 
