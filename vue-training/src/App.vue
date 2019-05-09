@@ -1,20 +1,15 @@
 <template>
   <div id="app">
-    <header/>
-    <img src="./assets/logo.png">
+    <img src="./assets/images/bo2.jpg">
     <router-view/>
   </div>
 </template>
 
 <script>
-import Header from '@/components/Header'
 export default {
-  comments: {
-    Header
-  },
   name: 'App',
   beforeCreate () {
-    console.log('Nothing gonna change my life')
+    alert('welcome to this website')
   },
   created () {
     console.log('test created')
@@ -32,13 +27,18 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss" scoped>
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+}
+img{
+  width: 100%
+}
+.Header{
+  height: 100%;
 }
 </style>

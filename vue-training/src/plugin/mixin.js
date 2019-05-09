@@ -1,17 +1,19 @@
-import Vue from 'vue'
-// 可共用項目
-Vue.mixin({
+export default {
   data () {
     return {
       width: 0
     }
   },
-  methods: {
+  computed: {
+    // mobile is between 0 ~ 414
     isMobile () {
       return this.width <= 414 && this.width > 0
     },
+    // tablet is between 415 ~ 768
     isTablet () {
       return this.width >= 415 && this.width <= 768
     }
+  },
+  methods: {
   }
-})
+}
