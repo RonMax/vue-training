@@ -13,7 +13,13 @@ export default {
     isTablet () {
       return this.width >= 415 && this.width <= 768
     }
+
   },
   methods: {
+    getDOMWidth () {
+      console.log('testing mixin')
+      const DOMRect = document.querySelector('body').getBoundingClientRect()
+      this.width = DOMRect.width
+    }
   }
 }

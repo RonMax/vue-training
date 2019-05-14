@@ -3,44 +3,39 @@
     <!-- Header -->
     <Header/>
     <!-- Header -->
-    <!-- List -->
-    <div class="list__container" >
-      <div  v-for="(member,list) in member.programer" :key="list">
-        <Memberlist class="list__container__data"
-          :name="member.name"
-          :title="member.title"
-          :image="member.image"
-          :skill="member.skill"
-        />
-      </div>
-    </div>
-    <!-- List -->
+      <!--顯示區塊-->
+    <router-view></router-view>
+    <!-- 顯示區塊 -->
+    <!-- <div>{{ userInfo }}</div> -->
+    <!-- <div>{{city}}</div> -->
     <!-- Topic -->
-  <Topic/>
-  <!-- Topic -->
+    <!-- <Topic/> -->
+    <!-- Topic -->
+    <!-- Topic -->
+    <Footer/>
+    <!-- Topic -->
   </div>
 </template>
 
 <script>
 import Header from '@/components/Header'
 import Topic from '@/components/Topic'
-import Memberlist from '@/components/Memberlist'
 import { member } from '@/datas/member'
+import Footer from '@/components/Footer'
 export default {
   components: {
     Header,
     Topic,
-    Memberlist
+    Footer
   },
   name: 'HelloWorld',
   data () {
     return {
-      member
+      info: null
     }
   },
-  created () {
-    console.log(member)
-  },
+  // created () {
+  // },
   // 通過watcher監聽數據
   // watch當參數變化時執行非同步
   watch: {
@@ -56,6 +51,24 @@ export default {
         alert('123')
       }
     }
+  },
+  computed: {
+    city () {
+      return this.$store.getters.getCityFn
+    },
+    userInfo () {
+      return this.$store.state.userInfo
+    }
+    // students () {
+    //   return this.$store.state.students
+    // }
+  },
+  mounted () {
+  //   const response = this.Axios
+  //     .get('https://api.coindesk.com/v1/bpi/currentprice.json')
+  //   // JSON responses are automatically parsed.
+  //     .then(response => (this.info = response))
+  //   this.info = response
   }
 }
 </script>
@@ -63,19 +76,9 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="scss" scoped>
 .hello{
-  background-color: #6279a1;
-}
-.list__container{
+  background-color: #5a87a5;
+  height: 100vh;
   display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  margin: auto;
-  width: 80%;
-  margin-top: 40px;
-    &__data{
-      display: flex;
-      flex-direction: column;
-    }
+  flex-direction: column;
 }
-
 </style>

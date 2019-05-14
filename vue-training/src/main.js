@@ -1,14 +1,20 @@
-// The Vue build version to load with the `import` command
-// (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import Vue from 'vue'
 import App from './App'
 import 'normalize.css'
 import Router from 'vue-router'
 import mixin from '@/plugin/mixin'
 import HelloWorld from '@/components/HelloWorld'
-import Topic from '@/components/Topic'
-import Header from '@/components/Header'
+import Pagination from '@/components/Pagination'
+import Memberlist from '@/components/Memberlist'
+import Axios from 'axios'
+import VueCookie from 'vue-cookie'
+import store from '../store/index.js'
 
+const base = Axios.create({
+  baseURL: 'http://jsonplaceholder.typicode.com'
+})
+Vue.prototype.$http = base
+Vue.use(VueCookie)
 Vue.use(Router)
 Vue.mixin(mixin)
 
@@ -18,14 +24,15 @@ const router = new Router({
     {path: '/home',
       component: HelloWorld,
       children: [
-        {path: 'header',
-          component: Header
+        {path: 'memberlist',
+          component: Memberlist
+        },
+        {path: 'pagination',
+          component: Pagination
         }
       ]
     },
-    {path: '/Topic',
-      component: Topic
-    }
+    { path: '/', redirect: '/home' }
   ]
 })
 
@@ -35,6 +42,7 @@ new Vue({
   // ,自定義Render , template, el 生成Render函數(筆記)
   el: '#app',
   router,
+  store,
   components: { App },
   template: '<App/>'
 })

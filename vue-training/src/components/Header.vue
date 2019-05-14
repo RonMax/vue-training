@@ -9,13 +9,14 @@
 
 <script>
 export default {
-  name: 'Header'
+  name: 'Header',
+  
 }
 </script>
 
 <style lang="scss" scoped>
 .header__container{
-    height: 100px;
+    flex-basis: 100px;
     width: 100%;
     margin-top: -10px;
     display: flex;
